@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+   body {
+      background-color: rgb(51, 54, 66);
+   }
+</style>
+   
+      <!-- contact section start -->
+      <div class="contact_section contact_main">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-6 padding_0">
+                  <div class="contact_bg">
+                     <div class="input_main">
+                        <div class="container">
+                           <h2 class="request_text">HAVE A QUERY?</h2>
+                           <form method="POST" action="{% url 'submit_message' %}">
+                              {% csrf_token %}
+                              <div class="form-group">
+                                 <input type="text" class="email-bt" placeholder="Your Name" name="Name" required>
+                              </div>
+                              <div class="form-group">
+                                 <input type="email" class="email-bt" placeholder="Email" name="Email" required>
+                              </div>
+                              <div class="form-group">
+                                 <input type="text" class="email-bt" placeholder="Phone" name="Phone" required>
+                              </div>
+                              <div class="form-group">
+                                 <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="Message" required></textarea>
+                              </div>
+                              <div class="send_btx"> <button type="submit" >SEND</button> </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+
+               <div class="col-md-6 padding_0">
+                  <div class="map-responsive">
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124444.88706284676!2d77.54147375824195!3d12.913973524449611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d8f8622b807%3A0x8407511188a9ed06!2sSnipe%20Tech%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1686155966209!5m2!1sen!2sin" width="auto" height="450" style="border:0; min-width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- contact section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="footer_section_2">
+            <div class="container">
+               <h2 class="addres_text">Address</h2>
+               <div class="row map_addres">
+                  <div class="col-sm-12 col-lg-4">
+                     <div class="map_text"><img src="/static/images/map-icon.png"><span class="map_icon">123 SVA Arcade 2nd floor, 70th Cross Rd, 5th Block, Rajajinagar, Bengaluru</span></div>
+                  </div>
+                  <div class="col-sm-12 col-lg-4">
+                     <div class="map_text"><img src="/static/images/phone-icon.png"><span class="map_icon">( 063635 07858 )</span></div>
+                  </div>
+                  <div class="col-sm-12 col-lg-4">
+                     <div class="map_text"><img src="/static/images/email-icon.png"><span class="map_icon">hr@snipe.co.in</span></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <div class="copyright_section">
+         <p class="copyright_text">Copyright 2023 All Right Reserved By Snipe Tech Pvt Ltd</p>
+      </div>
+   
+
+{% endblock content %}

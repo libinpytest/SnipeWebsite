@@ -1,0 +1,65 @@
+
+.component-wrapper {
+    display: flex;
+    justify-content: center; /* Center the box horizontally */
+    padding: 40px; /* Add padding to create a gap from the edges */
+}
+
+.component-cont {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px dashed rgb(185, 235, 35); /* Add border */
+    padding: 20px; /* Adjust padding */
+    max-width: 800px;
+    text-align: center; /* Center the content */
+    display: flex; /* Add flex display */
+    flex-direction: column; /* Arrange content in a column */
+    align-items: stretch; /* Stretch items horizontally */
+    gap: 10px; /* Add gap between items */
+}
+
+.heading-component {
+    text-decoration: underline;
+}
+
+.component-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    flex-grow: 1; /* Allow the list to grow and take available space */
+}
+
+.component-list li {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    border: 1px solid rgb(142, 163, 46); /* Add border to each row */
+    padding: 5px;
+    margin-bottom: 10px; /* Add gap between rows */
+}
+
+.component-name {
+    flex-grow: 1;
+    text-align: left; /* Align component names to the left */
+}
+
+.component-list li .component-actions {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.component-list a.create-link {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.component-list a.edit-link,
+.component-list a.delete-link {
+    font-size: 14px;
+
+}
+
+.component-cont h2, label, p {
+    color: white;
+}

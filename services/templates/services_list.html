@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image: linear-gradient(#1e415e 10%, #2b5b84 90%);
+    }
+
+    .service-main {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10%;
+    }
+
+    .service-header-title {
+        width: 50%;
+    }
+
+    .create-service-button {
+        width: 50%;
+        float: right;
+        text-align: right;
+        margin-right: 1.42%;
+    }
+
+    .no-data-section {
+        width: 100%;
+        text-align: center;
+    }
+
+    .no-data-section h2 {
+        color: white;
+    }
+
+    .service-header {
+        display: inline-flex;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .service-header h2 {
+        color: #ffffffb2;
+        font-weight: bold;
+    }
+
+    .services {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        width: 100%;
+    }
+
+    .services-parent {
+        width: 24%;
+        border: 1px solid antiquewhite;
+        padding: 10px;
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
+
+    .service-tile {
+        padding: auto;
+        text-align: center;
+    }
+
+    .service-tile-image {
+        text-align: left;
+    }
+
+    .service-tile-image img {
+        max-width: 75px;
+        height: 75px;
+        border: 1px solid aliceblue;
+    } 
+
+    .service-tile-header {
+        height: 30px;
+        background-color: #21629b57;
+        margin-top: 10px;
+        padding: 0px 10px;
+        overflow: scroll;
+    }
+
+    .service-tile-header h3 {
+        color: white;
+        text-align: left;
+    }
+
+    .service-tile-description {
+        height: 100px;
+        background-color: #5a89b363;
+        margin-top: 10px;
+        padding: 0px 10px;
+        overflow: scroll;
+        overflow-x: hidden;
+        text-align: left;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .service-tile-description span {
+        font-size: 12px;
+        font-weight: 200;
+        margin: 0;
+        color: white;
+    }
+
+    .service-action-buttons {
+        text-align: left;
+    }
+
+    .edit-button {
+        width: 49%;
+    }
+
+    .delete-button {
+        width: 49%;
+    }
+
+</style>
+
+    <div class="service-main">
+        <div class="service-header">
+            <div class="service-header-title">
+                <h2>Services</h2>
+            </div>
+            {% if user.is_authenticated and user.is_staff %}
+            <div class="create-service-button">
+                <a class="btn btn-success" href="{% url 'create_services' %}">Create New service</a>
+            </div> 
+            {% endif %}
+        </div>
+        <!-- Iterate throught each service -->
+        <div class="services">
+            {% if services %}
+            <h3 style="color: white;">Next Generation Speed</h3>
+            <div class="section-divider"></div>
+            <h6 style="color: white;">
+                Software Application Development, Mobile Application Development, Software Application Testing Services, IOT, Data Analytics, Embedded Solutions, Hardware & Networking Services, Corporate Training, Digital Marketing, Security & Surveillance Access Management and HR Consulting Services.
+            </h6>
+        
+            <div class="section-divider"></div>
+                {% for service in services %}
+                    <div class="services-parent">
+                        <div class="service-tile">
+                            <div>
+                                {% if service.photo %}
+                                    <div class="service-tile-image">
+                                        <img src="{{ service.photo.url }}" alt="{{ service.title }}">
+                                    </div>
+                                {% endif %}
+                                <div class="service-tile-header">
+                                    <h3>{{ service.title }}</h3>
+                                </div>
+                                <div class="service-tile-description">
+                                    <span>{{ service.description }}</span>
+                                </div>
+                                {% if user.is_authenticated and user.is_staff %}
+                                <div class="service-action-buttons">
+                                    <a class="btn btn-secondary edit-button" href="{% url 'update_services' service.id %}">Edit</a>
+                                    <a class="btn btn-danger delete-button" href="{% url 'delete_services' service.id %}">Delete</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %} 
+                <div class="no-data-section">
+                    <h2>NO service Added</h2>
+                </div>
+            {% endif %}
+         </div>
+    </div>
+
+<div class="copyright_section">
+    <p class="copyright_text">Copyright 2023 All Right Reserved By Snipe Tech Pvt Ltd</p>
+ </div>
+
+{% endblock %}

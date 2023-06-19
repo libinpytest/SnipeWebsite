@@ -1,0 +1,65 @@
+
+.products-wrapper {
+    display: flex;
+    justify-content: center; /* Center the box horizontally */
+    padding: 40px; /* Add padding to create a gap from the edges */
+}
+
+.products-cont {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px dashed rgb(185, 235, 35); /* Add border */
+    padding: 20px; /* Adjust padding */
+    max-width: 800px;
+    text-align: center; /* Center the content */
+    display: flex; /* Add flex display */
+    flex-direction: column; /* Arrange content in a column */
+    align-items: stretch; /* Stretch items horizontally */
+    gap: 10px; /* Add gap between items */
+}
+
+.heading-products {
+    text-decoration: underline;
+}
+
+.products-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    flex-grow: 1; /* Allow the list to grow and take available space */
+}
+
+.products-list li {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    border: 1px solid rgb(142, 163, 46); /* Add border to each row */
+    padding: 5px;
+    margin-bottom: 10px; /* Add gap between rows */
+}
+
+.products-name {
+    flex-grow: 1;
+    text-align: left; /* Align products names to the left */
+}
+
+.products-list li .products-actions {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.products-list a.create-link {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.products-list a.edit-link,
+.products-list a.delete-link {
+    font-size: 14px;
+
+}
+
+.products-cont h2, label, p {
+    color: white;
+}

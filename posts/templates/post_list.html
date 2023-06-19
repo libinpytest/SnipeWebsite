@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image: linear-gradient(#1e415e 10%, #2b5b84 90%);
+    }
+
+    .post-list a {
+        color: rgb(255, 255, 255);
+    }
+
+    .post-wrapper {
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+}
+
+.post-cont {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 75px;
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-inline: 220px;
+}
+
+
+    .heading-post {
+        text-decoration: underline;
+        text-transform: uppercase;
+        font-size: x-large;
+        color: white;
+    }
+    
+
+    .post-list {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+        flex-grow: 1; /* Allow the list to grow and take available space */
+    }
+
+    .post-list li {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        padding: 5px;
+        margin-bottom: 10px; /* Add gap between rows */
+    }
+
+    .post-name {
+        flex-grow: 1;
+        text-align: left; /* Align post names to the left */
+    }
+
+    .post-list li .post-actions {
+        display: flex;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .post-list a.create-link {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .post-list a.edit-link,
+    .post-list a.delete-link {
+        font-size: 14px;
+    }
+
+    .border-mix {
+        border: 2px dotted rgb(178, 172, 9);
+        grid-column: auto;
+
+    }
+</style>
+
+<div style="margin-bottom: 100px;">
+    <div class="post-wrapper">
+        <section class="post-list">
+            <div class="post-cont">
+                <div class="border-mix">
+                <h2 class="heading-post">Posts</h2>
+                {% if user.is_authenticated and user.is_staff %}
+                <a href="{% url 'create_post' %}" class="btn btn-success btn-sm">Create Post</a>
+                {% endif %}
+                <div class="section-divider"></div>
+                <ul>
+                    {% for post in posts %}
+                        <li>
+                            <div class="post-name">
+                                <a href="{% url 'view_post_detail' post.id %}" style="font-size: 20px;">{{ post.title }}</a>
+                            </div>
+                            {% if user.is_authenticated and user.is_staff %}
+                                <div class="post-actions">
+                                    <a href="{% url 'update_post' post.id %}" class="btn btn-primary">Edit</a>
+                                    <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+                                </div>
+                            {% endif %}
+
+                        </li>
+                        <div class="section-divider"></div>
+                    {% endfor %}
+                </ul>
+            </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+{% endblock content %}

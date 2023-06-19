@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background-image: linear-gradient(#1e415e 10%, #2b5b84 90%);
+    }
+
+    .product-main {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10%;
+    }
+
+    .product-header-title {
+        width: 50%;
+    }
+
+    .create-product-button {
+        width: 50%;
+        float: right;
+        text-align: right;
+        margin-right: 1.42%;
+    }
+
+    .no-data-section {
+        width: 100%;
+        text-align: center;
+    }
+
+    .no-data-section h2 {
+        color: white;
+    }
+
+    .product-header {
+        display: inline-flex;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .product-header h2 {
+        color: #ffffffb2;
+        font-weight: bold;
+    }
+
+    .products {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        width: 100%;
+    }
+
+    .products-parent {
+        width: 24%;
+        border: 1px solid antiquewhite;
+        padding: 10px;
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
+
+    .product-tile {
+        padding: auto;
+        text-align: center;
+    }
+
+    .product-tile-image {
+        text-align: left;
+    }
+
+    .product-tile-image img {
+        max-width: 75px;
+        height: 75px;
+        border: 1px solid aliceblue;
+    } 
+
+    .product-tile-header {
+        height: 30px;
+        background-color: #21629b57;
+        margin-top: 10px;
+        padding: 0px 10px;
+        overflow: scroll;
+    }
+
+    .product-tile-header h3 {
+        color: white;
+        text-align: left;
+    }
+
+    .product-tile-description {
+        height: 100px;
+        background-color: #5a89b363;
+        margin-top: 10px;
+        padding: 0px 10px;
+        overflow: scroll;
+        overflow-x: hidden;
+        text-align: left;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .product-tile-description span {
+        font-size: 12px;
+        font-weight: 200;
+        margin: 0;
+        color: white;
+    }
+
+    .product-action-buttons {
+        text-align: left;
+    }
+
+    .edit-button {
+        width: 49%;
+    }
+
+    .delete-button {
+        width: 49%;
+    }
+
+</style>
+
+    <div class="product-main">
+        <div class="product-header">
+            <h2>Products</h2>
+            <div class="product-header-title">
+            </div>
+            {% if user.is_authenticated and user.is_staff %}
+            <div class="create-product-button">
+                <a class="btn btn-success" href="{% url 'create_products' %}">Create New product</a>
+            </div> 
+            {% endif %}
+        </div>
+        <!-- Iterate throught each product -->
+        <div class="products">
+            {% if products %}
+                {% for product in products %}
+                    <div class="products-parent">
+                        <div class="product-tile">
+                            <div>
+                                {% if product.photo %}
+                                    <div class="product-tile-image">
+                                        <img src="{{ product.photo.url }}" alt="{{ product.title }}">
+                                    </div>
+                                {% endif %}
+                                <div class="product-tile-header">
+                                    <h3>{{ product.title }}</h3>
+                                </div>
+                                <div class="product-tile-description">
+                                    <span>{{ product.description }}</span>
+                                </div>
+                                {% if user.is_authenticated and user.is_staff %}
+                                <div class="product-action-buttons">
+                                    <a class="btn btn-secondary edit-button" href="{% url 'update_products' product.id %}">Edit</a>
+                                    <a class="btn btn-danger delete-button" href="{% url 'delete_products' product.id %}">Delete</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %} 
+                <div class="no-data-section">
+                    <h2>NO product Added</h2>
+                </div>
+            {% endif %}
+         </div>
+    </div>
+
+<div class="copyright_section">
+    <p class="copyright_text">Copyright 2023 All Right Reserved By Snipe Tech Pvt Ltd</p>
+ </div>
+
+{% endblock %}

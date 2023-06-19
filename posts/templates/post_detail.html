@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+body {
+    background-image: linear-gradient(#1e415e 10%, #2b5b84 90%);
+}
+
+
+.notification-cont {
+    font-weight: 300;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+  border: 2px dashed rgb(117, 128, 31); /* Add border */
+}
+
+
+.heading{
+  color: white;
+    padding-left: 40%;
+    text-decoration: underline;
+    
+}
+
+.section-message {
+  padding-top: 10%;
+  padding-right: 20%;
+  padding-left: 20%;
+  padding-bottom: 5%; 
+  margin-bottom: 15%;
+
+}
+
+</style>
+<section class="section-message">
+    <div class="notification-cont">
+        <div class="container">
+<h1 class="heading">{{ post.title }}</h1>
+<p>{{ post.content }}</p>
+<p>Author: {{ post.author }}</p>
+<p>Publication Date: {{ post.publication_date }}</p>
+</div>
+</div>
+</section>
+
+<div class="copyright_section">
+    <p class="copyright_text">Copyright 2023 All Right Reserved By Snipe Tech Pvt Ltd</p>
+ </div>
+
+{% endblock content %}
+
+    
+

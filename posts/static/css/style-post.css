@@ -1,0 +1,74 @@
+
+body {
+    background-image: linear-gradient(#1e415e 10%, #2b5b84 90%);
+}
+
+.post-list a {
+    color: rgb(255, 255, 255);
+}
+
+
+.post-wrapper {
+    display: flex;
+    justify-content: center; /* Center the box horizontally */
+    padding: 40px; /* Add padding to create a gap from the edges */
+}
+
+.post-cont {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px dashed rgb(185, 235, 35); /* Add border */
+    padding: 20px; /* Adjust padding */
+    max-width: 800px;
+    text-align: center; /* Center the content */
+    display: flex; /* Add flex display */
+    flex-direction: column; /* Arrange content in a column */
+    align-items: stretch; /* Stretch items horizontally */
+    gap: 10px; /* Add gap between items */
+}
+
+.heading-post {
+    text-decoration: underline;
+}
+
+.post-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    flex-grow: 1; /* Allow the list to grow and take available space */
+}
+
+.post-list li {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    border: 1px solid rgb(142, 163, 46); /* Add border to each row */
+    padding: 5px;
+    margin-bottom: 10px; /* Add gap between rows */
+}
+
+.post-name {
+    flex-grow: 1;
+    text-align: left; /* Align post names to the left */
+}
+
+.post-list li .post-actions {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.post-list a.create-link {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.post-list a.edit-link,
+.post-list a.delete-link {
+    font-size: 14px;
+
+}
+
+.heading-post {
+    color: white;
+}

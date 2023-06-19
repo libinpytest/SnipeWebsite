@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    
+    body {
+        background-image: linear-gradient(#1e415e 10%, #2b5b84 90%);
+    }
+    
+    </style>
+    
+    <link rel="stylesheet" href="/static/css/products-style.css">
+
+<div class="products-wrapper"> 
+    <section class="products-list">
+        <div class="products-cont">
+
+            <h2>Edit Product</h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-success" type="submit">Update</button>
+                <a href="{% url 'products_list' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </section>
+</div>
+    
+    <div class="copyright_section">
+        <p class="copyright_text">Copyright 2023 All Right Reserved By Snipe Tech Pvt Ltd</p>
+     </div>
+{% endblock %}

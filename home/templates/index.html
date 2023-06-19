@@ -1,0 +1,183 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<style>
+   .about_section {
+      margin-bottom: 20px;
+   }
+   .contact_section {
+      margin-top: 20px;
+   }
+
+   .banner-bg img {
+      border-radius: 20px;
+   }
+</style>
+
+<!-- section header end -->
+<!-- banner section start -->
+<div class="banner_section">
+   <div class="container-fluid">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-5">
+                     <div class="taital_main">
+                        <h2 class="snipe_text">Snipe is with you</h2>
+                        <p class="lorem_text">Software Application Development, Mobile Application Development, Software Application Testing Services, IOT, Data Analytics, Embedded Solutions, Hardware & Networking Services, Corporate Training, Digital Marketing, Security & Surveillance Access Management, and HR Consulting Services. </p>
+                        <div class="btn btn-dark"><a href="../contact">CONTACT US</a></div>
+                     </div>
+                  </div>
+                  <div class="col-sm-5">
+                     <div class="banner-bg"><img src="/static/images/banner-bg.png"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-5">
+                     <div class="taital_main">
+                        <h2 class="snipe_text">We are innovative</h2>
+                        <p class="lorem_text">Snipe is a cutting-edge IT company at the forefront of technological advancements. With a mission to redefine innovation, Snipe brings together a team of brilliant minds and creative thinkers who are passionate about pushing boundaries. They specialize in developing groundbreaking software solutions, leveraging the power of artificial intelligence, machine learning, and data analytics to solve complex problems across various industries.</p>
+                        <div class="btn btn-dark"><a href="../contact">CONTACT US</a></div>
+                     </div>
+                  </div>
+                  <div class="col-sm-5">
+                     <div class="banner-bg"><img src="/static/images/banner-bg1.jpg"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-5">
+                     <div class="taital_main">
+                        <h2 class="snipe_text">Transforming Industries with Revolutionary Technology</h2>
+                        <p class="lorem_text">Snipe takes pride in their ability to deliver customized and scalable IT solutions tailored to meet the unique needs of their clients. Their expertise spans across a wide range of domains, including e-commerce, finance, healthcare, and more. By leveraging the latest technologies and industry best practices, Snipe helps businesses streamline their operations, enhance productivity, and achieve sustainable growth.</p>
+                        <div class="btn btn-dark"><a href="../contact">CONTACT US</a></div>
+                     </div>
+                  </div>
+                  <div class="col-sm-5">
+                     <div class="banner-bg"><img src="/static/images/banner-bg2.jpg"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+         </a>
+         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+         </a>
+      </div>
+   </div>
+</div>
+<!-- banner section end -->
+<!-- about section start -->
+<div class="about_section">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="about_taital">
+               <h1 class="about_text">ABOUT SNIPE</h1>
+               <div class="long_text">
+                  <p>
+                     SNIPE TECH PVT LTD Company, formerly known as SNIPE IT SOLUTIONS established in 2009, is a pioneer in providing world-class consulting services in enterprise solutions for the technology solutions covering Embedded Systems and System Software to its Global Clientele.
+                  </p>
+                  <p>
+                     Snipe Tech is a professional who provides expert advice in a particular domain or area of expertise such as IT.
+                  </p>
+                  <p>
+                     SNIPE Tech is a company known for various services such as Software Development, corporate training, and for Hardware and Networking solutions. This Indian-based company is stationed at Bengaluru. It was established by Govindappa P D, who is a proprietor and well-known for various administrative services having experience of 25 years. We believe in customer delight and discipline. We assure you that this is the right company to choose for various services.
+                  </p>
+               </div>
+               <div class="btn btn-dark"><a href="#">ABOUT MORE</a></div>
+            </div>
+         </div>
+         <div class="col-md-6 padding_0">
+            <div class="about_img"><img src="/static/images/about-bg.png"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- about section end -->
+
+<!-- contact section start -->
+<div class="contact_section">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="contact_bg">
+               <div class="input_main">
+                  <div class="container">
+                     <h2 class="request_text">HAVE A QUERY?</h2>
+                     <form method="POST" action="{% url 'submit_message' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                           <input type="text" class="email-bt" placeholder="Your Name" name="Name" required>
+                        </div>
+                        <div class="form-group">
+                           <input type="email" class="email-bt" placeholder="Email" name="Email" required>
+                        </div>
+                        <div class="form-group">
+                           <input type="text" class="email-bt" placeholder="Phone" name="Phone" required>
+                        </div>
+                        <div class="form-group">
+                           <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="Message" required></textarea>
+                        </div>
+                        <div class="send_btx">
+                           <button type="submit">SEND</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6 padding_0">
+            <div class="map-responsive">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124444.88706284676!2d77.54147375824195!3d12.913973524449611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d8f8622b807%3A0x8407511188a9ed06!2sSnipe%20Tech%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1686155966209!5m2!1sen!2sin" width="600" height="450" style="border-radius: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- contact section end -->
+
+<!-- footer section start -->
+<div class="footer_section layout_padding">
+   <div class="container">
+   </div>
+   <div class="footer_section_2">
+      <div class="container">
+         <h2 class="addres_text">Address</h2>
+         <div class="row map_addres">
+            <div class="col-sm-12 col-lg-4">
+               <div class="map_text"><img src="/static/images/map-icon.png"><span class="map_icon">123 SVA Arcade 2nd floor, 70th Cross Rd, 5th Block, Rajajinagar, Bengaluru</span></div>
+            </div>
+            <div class="col-sm-12 col-lg-4">
+               <div class="map_text"><img src="/static/images/phone-icon.png"><span class="map_icon">( 063635 07858 )</span></div>
+            </div>
+            <div class="col-sm-12 col-lg-4">
+               <div class="map_text"><img src="/static/images/email-icon.png"><span class="map_icon">hr@snipe.co.in</span></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- footer section end -->
+
+<div class="copyright_section">
+   <p class="copyright_text">Copyright 2023 All Right Reserved By Snipe Tech Pvt Ltd</p>
+</div>
+
+
+{% endblock %}

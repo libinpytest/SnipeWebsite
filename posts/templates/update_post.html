@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/style-post.css">
+
+<style>
+
+    /* Style the form labels */
+    label {
+        color: rgb(248, 248, 248); /* Set label text color */
+        font-size: 24px; /* Set label font size */
+    }
+</style>
+
+<div class="post-wrapper"> 
+    <section class="post-list">
+        <div class="post-cont">
+
+<h1 style="color: white;">Update Post</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-success" type="submit">Update</button>
+  <a href="{% url cancel_url %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+</div>
+</section>
+</div>
+
+<div class="copyright_section">
+    <p class="copyright_text">Copyright 2023 All Right Reserved By Snipe Tech Pvt Ltd</p>
+ </div>
+
+{% endblock %}
